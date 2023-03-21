@@ -110,11 +110,10 @@ gobuster dir -u 192.168.56.153 -w /usr/share/wordlists/dirbuster/directory-list-
 
 `robots.txt` contains `?cmd=` on the very last line
 
-
 let's check `system.php`.   
 looks like `system.php` contains nothing, but wait then what was in the `robots.txt`, let's try that.
 
-![img](assets/cmd%3Did.png)
+![img](assets/cmd_id.png)
 
 It shows nothing.    
 But wait let's try base64 encoding, as it says `base64 is your best friend` on ftp server.
