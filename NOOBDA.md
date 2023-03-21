@@ -20,6 +20,7 @@ Passwords:
 Apache is the webserver:
 
 - default contains robots.txt
+- Limited number of commands on ssh (can only use 3 commands per login)
 
 FTP has a hidden file, `.hidden.txt`.
 
@@ -88,7 +89,7 @@ get .hidden.txt
 Ok now, `.hidden.txt` contains: `base64 is your best friend`
 
 
-# gobuster
+## gobuster
 
 Let's run `gobuster`
 
