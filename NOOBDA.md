@@ -203,8 +203,6 @@ At first spawn a [TTY](https://book.hacktricks.xyz/generic-methodologies-and-res
 python3 -c "import pty; pty.spawn('/bin/bash')"
 ```
 
-## Privilege Escalation
-
 ### Finding SUID's
 
 ```
@@ -258,6 +256,9 @@ Grab the `user.txt` flag
 ```
 cat /home/sarthak/user.txt
 ```
+
+## Privilege Escalation
+
 
 The last line after we login in is ` *** You have only 3 chances *** `
 
