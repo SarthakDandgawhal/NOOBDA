@@ -117,9 +117,9 @@ looks like `system.php` contains nothing, but wait then what was in the `robots.
 
 It shows nothing.    
 But wait let's try base64 encoding, as it says `base64 is your best friend` on ftp server.
-Go to any base64 encoder website you want, but I persanally recommend to use [cyberChef](https:https://gchq.github.io/CyberChef/), because it has very simple and minimal UI as well as it is powerful tool for encoding and decoding operations.
+Go to any base64 encoder website you want, but I persanally recommend to use CyberChef, because it has very simple and minimal UI as well as it is powerful tool for encoding and decoding operations.
 
-[cyberChef](https://gchq.github.io/CyberChef/#recipe=To_Base64('A-Za-z0-9%2B/%3D')&input=aWQ) giives me this result for id = `aWQ=`
+[CyberChef](https://gchq.github.io/CyberChef/#recipe=To_Base64('A-Za-z0-9%2B/%3D')&input=aWQ) giives me this result for id = `aWQ=`
 
 ```
 http://192.168.56.153/system.php?cmd=aWQ=
