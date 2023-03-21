@@ -20,7 +20,7 @@ Passwords:
 Apache is the webserver:
 
 - default contains robots.txt
-- Limited number of commands on ssh (can only use 3 commands per login)
+- Limited number of commands on ssh (3 command attempts per login)
 
 FTP has a hidden file, `.hidden.txt`.
 
