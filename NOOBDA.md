@@ -20,7 +20,7 @@ Passwords:
 Apache is the webserver:
 
 - default contains robots.txt
-- Limited number of commands on ssh (3 command attempts per login)
+- Limited command attempts on ssh (3 command attempts per login)
 
 FTP has a hidden file, `.hidden.txt`.
 
@@ -34,7 +34,7 @@ N/A
 
 ### Other
 
-N/A
+`limit.sh` script for Limited command attempts
 
 # Writeup
 
@@ -107,6 +107,37 @@ gobuster dir -u 192.168.56.153 -w /usr/share/wordlists/dirbuster/directory-list-
 `info.php` contains all information about the php, in this case: 
 
 ![img](assets/php_info.png)
+
+### Nikto
+```
+nikto -h 192.168.56.153
+```
+Nikto shows that there is a Remote File Inclusion (RFI) vulnerability but it is not working.
+
+```
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.56.153
++ Target Hostname:    192.168.56.153
++ Target Port:        80
++ Start Time:         2023-03-21 20:35:25 (GMT5.5)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.52 (Ubuntu)
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ /: Server may leak inodes via ETags, header found with file /, inode: 29af, size: 5f73dc8f925a4, mtime: gzip. See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1418
++ Apache/2.4.52 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
++ OPTIONS: Allowed HTTP Methods: POST, OPTIONS, HEAD, GET .
++ /info.php: Output from the phpinfo() function was found.
++ /info.php: PHP is installed, and a test script which runs phpinfo() was found. This gives a lot of system information. See: CWE-552
++ /info.php?file=http://blog.cirt.net/rfiinc.txt: Remote File Inclusion (RFI) from RSnake's RFI list. See: https://gist.github.com/mubix/5d269c686584875015a2
++ 8102 requests: 0 error(s) and 8 item(s) reported on remote host
++ End Time:           2023-03-21 20:36:01 (GMT5.5) (36 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+
+```
 
 `robots.txt` contains `?cmd=` on the very last line
 
