@@ -79,7 +79,7 @@ Always use `ls -al` command to list files and folders.
 
 ![img](assets/ftp.png)
 
-Let's download ``.hidde.txt`` file to attacker machine
+Let's download ``.hidden.txt`` file to attacker machine
 
 ```
 get .hidden.txt
@@ -90,7 +90,7 @@ Ok now, `.hidden.txt` contains: `base64 is your best friend`
 
 # gobuster
 
-Let's run `gobuster` first
+Let's run `gobuster`
 
 ```
 gobuster dir -u 192.168.56.153 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .txt,.php
